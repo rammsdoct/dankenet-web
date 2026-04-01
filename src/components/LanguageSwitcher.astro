@@ -1,0 +1,38 @@
+
+---
+const path = Astro.url.pathname;
+const isES = path.startsWith('/es');
+const hash = Astro.url.hash ?? "";
+
+const href = isES ? `/${hash}` : `/es${hash}`;
+const label = isES ? "EN" : "ES";
+---
+
+<a class="lang-switch" href={href} aria-label="Switch language">
+  {label}
+</a>
+
+<style>
+  .lang-switch {
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 10px;
+
+    color: rgba(255,255,255,0.88);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+
+    transition: transform .15s ease, border-color .15s ease, background .15s ease;
+  }
+
+  .lang-switch:hover {
+    transform: translateY(-1px);
+    border-color: rgba(0, 170, 255, 0.55);
+    background: rgba(0, 170, 255, 0.10);
+  }
+</style>

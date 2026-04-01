@@ -1,50 +1,362 @@
+
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TerminalGadget from "../components/TerminalGadget.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<BaseLayout
+  lang="en"
+  title="Welcome to the IT HIVE | DANKE.NET"
+  description="Cloud, network automation, managed IT support, consulting and learning for mission-critical environments."
+>
+  <!-- ===================== -->
+  <!-- HERO (IT HIVE) -->
+  <!-- ===================== -->
+  <section id="inicio" class="hero-kainet" aria-labelledby="hero-title">
+    <div class="hero-grid">
+      <!-- Columna lateral -->
+      <aside class="hero-side" aria-label="Company tags and regions">
+        <span class="hero-tag">DANKE.NET</span>
+        <span class="hero-tag">IT HIVE</span>
+        <span class="hero-tag">MX · LATAM · US/CA</span>
+      </aside>
+
+      <!-- Contenido principal -->
+      <div class="hero-main hive-hero">
+        <!-- Copy -->
+        <div class="hive-copy">
+          <h1 id="hero-title">Welcome to the IT HIVE!</h1>
+
+          <p class="hero-sub">
+            Cloud &amp; Infrastructure, Network Automation &amp; Infrastructure,
+            Managed IT Support, Consulting and Learning — built for security,
+            uptime and scalable growth.
+          </p>
+
+          <div class="cta-row" role="group" aria-label="Primary actions">
+            <a href="#contacto" class="btn btn-primary">Request consultation</a>
+            <a href="#servicios" class="btn btn-secondary">Explore Services</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== -->
+  <!-- LIVE STATUS GADGET -->
+  <!-- ===================== -->
+  <TerminalGadget />
+
+  <!-- ===================== -->
+  <!-- WHY CHOOSE US -->
+  <!-- ===================== -->
+  <section class="why-us-section" aria-labelledby="why-us-title">
+    <div class="container">
+      <h2 id="why-us-title">Why Choose Us</h2>
+      <p class="why-us-intro">
+        We work with operational discipline, security-first mindset and verifiable results.
+        We are a committed partner invested in your long-term success.
+      </p>
+
+      <div class="why-us-grid">
+        <div class="value-item">
+          <i class="fas fa-shield-alt value-icon"></i>
+          <h3>Security First</h3>
+          <p>Proactive approach to data protection, regulatory compliance and operational resilience.</p>
+        </div>
+
+        <div class="value-item">
+          <i class="fas fa-chart-line value-icon"></i>
+          <h3>Measurable Results</h3>
+          <p>Clear KPIs, transparent reporting and continuous improvement on every project.</p>
+        </div>
+
+        <div class="value-item">
+          <i class="fas fa-handshake value-icon"></i>
+          <h3>Strategic Partner</h3>
+          <p>We are not transactional vendors. We integrate with your team and grow with you.</p>
+        </div>
+
+        <div class="value-item">
+          <i class="fas fa-cogs value-icon"></i>
+          <h3>Proven Expertise</h3>
+          <p>Successful projects in agile methodologies, cloud infrastructure and enterprise automation.</p>
+        </div>
+
+        <div class="value-item">
+          <i class="fas fa-lightbulb value-icon"></i>
+          <h3>Practical Innovation</h3>
+          <p>We evaluate new technology but prioritize real solutions over trends.</p>
+        </div>
+
+        <div class="value-item">
+          <i class="fas fa-headset value-icon"></i>
+          <h3>Dedicated Support</h3>
+          <p>Fast response, clear communication and availability when you need it most.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== -->
+  <!-- TRUST INDICATORS -->
+  <!-- ===================== -->
+  <section class="stats-section" aria-labelledby="stats-title">
+    <h2 id="stats-title" style="text-align: center; margin-bottom: 3rem;">Our Track Record</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Years of enterprise IT experience</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">200+</div>
+        <div class="stat-label">Successful projects delivered</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">99.9%</div>
+        <div class="stat-label">Average uptime achieved</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Geographic regions covered</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== -->
+  <!-- HOW WE WORK -->
+  <!-- ===================== -->
+  <section class="process-section" aria-labelledby="process-title">
+    <div class="container">
+      <h2 id="process-title">How We Work</h2>
+      <p class="process-intro">
+        We follow a proven process of discovery, design, implementation and optimization
+        to ensure tangible results aligned with your objectives.
+      </p>
+
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="process-number">1</div>
+          <h3>Assessment</h3>
+          <p>We understand your current environment, goals, risks and opportunities.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="process-number">2</div>
+          <h3>Design</h3>
+          <p>We propose optimized, realistic architecture aligned to your budget.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="process-number">3</div>
+          <h3>Implementation</h3>
+          <p>Orderly execution, documented thoroughly and with team training.</p>
+        </div>
+
+        <div class="process-step">
+          <div class="process-number">4</div>
+          <h3>Support</h3>
+          <p>Monitoring, maintenance and continuous improvement of your systems.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="servicios" class="services-kainet" aria-labelledby="services-title">
+    <div class="services-grid">
+      <aside class="services-side" aria-label="Services section navigation">
+        <h2 id="services-title">Services</h2>
+        <p>Core capabilities</p>
+      </aside>
+
+      <div class="services-list" role="region" aria-label="Service offerings">
+        <div class="service-line">
+          <h3>Cloud &amp; Infrastructure</h3>
+          <p>Architecture, migrations, hardening, backups, monitoring and cost optimization.</p>
+        </div>
+
+        <div class="service-line">
+          <h3>Network Automation &amp; Infrastructure</h3>
+          <p>Standardization, automation, segmentation, VPNs, routing and resilient design.</p>
+        </div>
+
+        <div class="service-line">
+          <h3>Managed IT Support</h3>
+          <p>Operational continuity, incident response, preventive maintenance and end-user support.</p>
+        </div>
+
+        <div class="service-line">
+          <h3>Consulting</h3>
+          <p>Assessments, roadmaps, security posture reviews and implementation guidance.</p>
+        </div>
+
+        <div class="service-line">
+          <h3>Learning</h3>
+          <p>Training for teams focused on real-world operations and best practices.</p>
+        </div>
+
+        <aside class="service-note" aria-label="Service scope note">
+          <p class="micro">
+            We tailor scope and delivery to SMB, corporate, industry, government and education environments.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== -->
+  <!-- ABOUT / MISSION / VISION -->
+  <!-- ===================== -->
+  <section id="nosotros" class="about-section" aria-labelledby="about-title">
+    <div class="container">
+      <h2 id="about-title">About</h2>
+      <p class="about-intro">
+        DANKE.NET provides modern IT services with a security-first mindset and strong operational discipline.
+        We work with organizations across Mexico, LATAM, US/CA and international environments.
+      </p>
+
+      <div class="values-grid" role="region" aria-label="Mission and vision statements">
+        <article class="value-card">
+          <h3>Mission</h3>
+          <p>
+            Deliver dependable IT services that reduce risk, improve efficiency and support business growth.
+          </p>
+        </article>
+
+        <article class="value-card">
+          <h3>Vision</h3>
+          <p>
+            Be a long-term technology partner — transparent, effective and aligned with client priorities.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== -->
+  <!-- ===================== -->
+  <section class="testimonials-section" aria-labelledby="testimonials-title">
+    <div class="container">
+      <h2 id="testimonials-title">What Our Clients Say</h2>
+      <p class="testimonials-intro">
+        Our clients value our consultative approach, commitment to results and accessibility.
+      </p>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="star-rating">★★★★★</div>
+          <p class="testimonial-text">
+            "DANKE.NET transformed our infrastructure. We went from frequent downtime to 99.9% uptime. 
+            Professional team, clear communication and verifiable results throughout."
+          </p>
+          <div class="testimonial-author">Carlos Vázquez</div>
+          <div class="testimonial-role">CTO, Manufacturing Company (500+ users)</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="star-rating">★★★★★</div>
+          <p class="testimonial-text">
+            "We migrated to cloud without disruption. Post-implementation support was excellent. 
+            We now have scalability we didn't have before and more predictable costs."
+          </p>
+          <div class="testimonial-author">María González</div>
+          <div class="testimonial-role">IT Director, Private University</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="star-rating">★★★★★</div>
+          <p class="testimonial-text">
+            "DANKE.NET didn't just solve our security issues; they delivered a clear IT strategy 
+            for the next 3 years. Truly a strategic technology partner."
+          </p>
+          <div class="testimonial-author">Roberto López</div>
+          <div class="testimonial-role">General Manager, Financial Services SMB</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== -->
+  <!-- ===================== -->
+  <section id="contacto" class="contact-section" aria-labelledby="contact-title">
+    <div class="container">
+      <h2 id="contact-title">Contact</h2>
+      <p class="contact-intro">
+        Share your goals and constraints — we'll recommend the most practical next steps.
+      </p>
+
+      <div class="contact-grid" role="region" aria-label="Contact methods">
+        <article class="contact-card">
+          <h3>Email</h3>
+          <div class="contact-item">
+            <a href="mailto:danke@dankenet.org" aria-label="Send email to danke@dankenet.org">
+              <i class="fas fa-envelope contact-icon"></i>
+            </a>
+            <span>danke@dankenet.org</span>
+          </div>
+        </article>
+
+        <article class="contact-card">
+          <h3>WhatsApp</h3>
+          <div class="contact-item">
+            <a
+              href="https://wa.me/524491931535?text=Hello%20DANKE.NET%2C%20I%27d%20like%20to%20request%20information%20about%20your%20IT%20services."
+              target="_blank" rel="noopener noreferrer"
+              aria-label="Contact via WhatsApp at +52 449 193 1535 (opens in new window)"
+            >
+              <i class="fab fa-whatsapp contact-icon"></i>
+            </a>
+            <span>+52 449 193 1535</span>
+          </div>
+        </article>
+
+        <article class="contact-card">
+          <h3>LinkedIn</h3>
+          <div class="contact-item">
+            <a
+              href="https://linkedin.com/company/danke-net"
+              target="_blank" rel="noopener noreferrer"
+              aria-label="Visit DANKE.NET LinkedIn page (opens in new window)"
+            >
+              <i class="fa-brands fa-linkedin contact-icon"></i>
+            </a>
+            <span>DANKE.NET</span>
+          </div>
+        </article>
+
+        <article class="contact-card">
+          <h3>Facebook</h3>
+          <div class="contact-item">
+            <a
+              href="https://www.facebook.com/profile.php?id=100089569026766"
+              target="_blank" rel="noopener noreferrer"
+              aria-label="Visit DANKE.NET Facebook page (opens in new window)"
+            >
+              <i class="fa-brands fa-facebook-f contact-icon"></i>
+            </a>
+            <span>DANKE.NET</span>
+          </div>
+        </article>
+      </div>
+
+      <p class="response-time">
+        <strong>Typical response time:</strong> within 24 business hours.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== -->
+  <!-- FOOTER -->
+  <!-- ===================== -->
+  <footer class="footer-section">
+    <div class="container">
+      <p class="footer-copy">
+        © {new Date().getFullYear()} DANKE.NET · <a href="mailto:danke@dankenet.org">danke@dankenet.org</a> · <a href="https://dankenet.org">dankenet.org</a>
+      </p>
+    </div>
+  </footer>
+
+</BaseLayout>

@@ -1,0 +1,163 @@
+
+<div class="terminal-wrap">
+  <div class="terminal-window">
+    <div class="terminal-header">
+      <span class="terminal-title">dankenet.exe</span>
+      <span class="terminal-controls">
+        <span class="terminal-btn minimize"></span>
+        <span class="terminal-btn maximize"></span>
+        <span class="terminal-btn close"></span>
+      </span>
+    </div>
+
+    <pre class="terminal-body">
+<span class="prompt">user@dankenet</span>:<span class="path">~</span>$ agent --status --live
+
+<span class="ok">●</span> PresaWatch <span class="state">running</span>
+<span class="ok">●</span> nLearning <span class="state">running</span>
+<span class="idle">○</span> danke@cloud <span class="state muted">in progress</span>
+<span class="idle">○</span> physical dc <span class="state muted">in progress</span>
+
+<span class="prompt">user@dankenet</span>:<span class="path">~</span>$ uptime 15+ years
+<span class="prompt">user@dankenet</span>:<span class="path">~</span>$ location Morelia Mich, MX
+<span class="prompt">user@dankenet</span>:<span class="path">~</span>$ <span class="cursor">▌</span>
+    </pre>
+  </div>
+</div>
+
+<style>
+/* ===== TERMINAL GADGET (Ubuntu/Linux Style) ===== */
+
+.terminal-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 80px 0;
+  padding: 0 20px;
+}
+
+.terminal-window {
+  width: 100%;
+  max-width: 550px;
+  background: #1e1e1e;
+  border-radius: 6px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  font-family: "Ubuntu Mono", monospace;
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: linear-gradient(180deg, #2b2b2b 0%, #1e1e1e 100%);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.terminal-title {
+  font-size: 0.85rem;
+  color: #e0e0e0;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.terminal-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.terminal-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #555;
+}
+
+.terminal-btn.minimize {
+  background: #f0ad4e;
+}
+
+.terminal-btn.maximize {
+  background: #5cb85c;
+}
+
+.terminal-btn.close {
+  background: #d9534f;
+}
+
+.terminal-body {
+  padding: 18px 20px;
+  font-family: "Ubuntu Mono", "Courier New", monospace;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: #00ff00;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background: #1e1e1e;
+  text-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
+}
+
+.prompt {
+  color: #00ff00;
+  font-weight: bold;
+}
+
+.path {
+  color: #54e2ff;
+}
+
+/* Status colors */
+.ok {
+  color: #34d399;
+  margin-right: 6px;
+}
+
+.idle {
+  color: #64748b;
+  margin-right: 6px;
+}
+
+.state {
+  color: #93c5fd;
+  margin-left: 4px;
+}
+
+.state.muted {
+  color: #94a3b8;
+}
+
+/* Cursor blink */
+.cursor {
+  display: inline-block;
+  margin-left: 2px;
+  animation: blink 1.2s infinite;
+  color: #00ff00;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .terminal-wrap {
+    margin: 60px 10px;
+  }
+
+  .terminal-window {
+    max-width: 100%;
+  }
+
+  .terminal-body {
+    font-size: 0.75rem;
+    padding: 14px 16px;
+  }
+
+  .terminal-title {
+    font-size: 0.75rem;
+  }
+}
+</style>
