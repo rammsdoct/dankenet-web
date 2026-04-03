@@ -2,7 +2,7 @@
 <div class="terminal-wrap">
   <div class="terminal-window">
     <div class="terminal-header">
-      <span class="terminal-title">dankenet.exe</span>
+      <span class="terminal-title">root@danke</span>
       <span class="terminal-controls">
         <span class="terminal-btn minimize"></span>
         <span class="terminal-btn maximize"></span>
@@ -11,16 +11,20 @@
     </div>
 
     <pre class="terminal-body">
-<span class="prompt">user@dankenet</span>:<span class="path">~</span>$ agent --status --live
+user@dankenet:~$ boot sequence --init
+Initializing application stack...
+Loading security agents...
 
-<span class="ok">●</span> PresaWatch <span class="state">running</span>
-<span class="ok">●</span> nLearning <span class="state">running</span>
-<span class="idle">○</span> danke@cloud <span class="state muted">in progress</span>
-<span class="idle">○</span> physical dc <span class="state muted">in progress</span>
+user@dankenet:~$ agent --status --live
 
-<span class="prompt">user@dankenet</span>:<span class="path">~</span>$ uptime 15+ years
-<span class="prompt">user@dankenet</span>:<span class="path">~</span>$ location Morelia Mich, MX
-<span class="prompt">user@dankenet</span>:<span class="path">~</span>$ <span class="cursor">▌</span>
+● PresaWatch running
+● nLearning running
+○ danke@cloud <span class="state muted" id="danke-cloud">loading</span>
+○ main dc <span class="state muted" id="main-dc">loading</span>
+
+user@dankenet:~$ uptime 15+ years
+user@dankenet:~$ location Morelia Mich, MX
+user@dankenet:~$ <span class="cursor">▌</span>
     </pre>
   </div>
 </div>
@@ -37,28 +41,44 @@
 
 .terminal-window {
   width: 100%;
-  max-width: 550px;
-  background: #1e1e1e;
-  border-radius: 6px;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  max-width: 620px;
+  background: rgba(11, 14, 22, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.65), inset 0 0 0 1px rgba(255,255,255,0.06);
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(79, 173, 255, 0.22);
   font-family: "Ubuntu Mono", monospace;
+  position: relative;
+}
+
+.terminal-window::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(120deg, rgba(54, 177, 255, 0.4), rgba(122, 96, 255, 0.4), rgba(75, 235, 166, 0.4));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+          mask-composite: exclude;
+  pointer-events: none;
+  animation: glowShift 4.5s ease-in-out infinite;
 }
 
 .terminal-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
-  background: linear-gradient(180deg, #2b2b2b 0%, #1e1e1e 100%);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 14px 18px;
+  background: linear-gradient(180deg, rgba(35, 42, 56, 0.92) 0%, rgba(20, 27, 38, 0.92) 100%);
+  border-bottom: 1px solid rgba(129, 160, 255, 0.3);
 }
+
 
 .terminal-title {
   font-size: 0.85rem;
-  color: #e0e0e0;
-  font-weight: 500;
+  color: #c8d5ff;
+  font-weight: 600;
   letter-spacing: 0.5px;
 }
 
@@ -88,76 +108,152 @@
 }
 
 .terminal-body {
-  padding: 18px 20px;
+  padding: 20px 24px;
   font-family: "Ubuntu Mono", "Courier New", monospace;
-  font-size: 0.85rem;
-  line-height: 1.7;
-  color: #00ff00;
+  font-size: 0.92rem;
+  line-height: 1.62;
+  color: #7cff9d;
   white-space: pre-wrap;
   word-wrap: break-word;
-  background: #1e1e1e;
-  text-shadow: 0 0 8px rgba(0, 255, 0, 0.3);
+  background: radial-gradient(circle at 20% 20%, rgba(25, 36, 47, 0.92), rgba(11, 15, 21, 0.85) 45%, rgba(6, 9, 15, 0.98));
+  text-shadow: 0 0 14px rgba(118, 255, 155, 0.32);
+  overflow-x: hidden;
+  letter-spacing: 0.03em;
 }
 
-.prompt {
-  color: #00ff00;
-  font-weight: bold;
-}
-
-.path {
-  color: #54e2ff;
-}
-
-/* Status colors */
-.ok {
-  color: #34d399;
-  margin-right: 6px;
-}
-
-.idle {
-  color: #64748b;
-  margin-right: 6px;
-}
-
-.state {
-  color: #93c5fd;
-  margin-left: 4px;
-}
-
-.state.muted {
-  color: #94a3b8;
-}
-
-/* Cursor blink */
+.prompt { color: #9be7ff; }
+.path { color: #7de7ff; }
+.ok { color: #88ff9b; }
+.idle { color: #f4ff8f; }
+.state { color: #96d7ff; }
+.state.muted { color: #b0c4d3; }
 .cursor {
   display: inline-block;
-  margin-left: 2px;
-  animation: blink 1.2s infinite;
-  color: #00ff00;
+  color: #72ff8e;
+  visibility: visible;
 }
 
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+.cursor.hidden {
+  visibility: hidden;
 }
 
-/* Mobile */
 @media (max-width: 640px) {
-  .terminal-wrap {
-    margin: 60px 10px;
-  }
+  .terminal-wrap { margin: 60px 12px; }
+  .terminal-window { max-width: 100%; }
+  .terminal-body { font-size: 0.74rem; padding: 14px 16px; }
+}
 
-  .terminal-window {
-    max-width: 100%;
-  }
-
-  .terminal-body {
-    font-size: 0.75rem;
-    padding: 14px 16px;
-  }
-
-  .terminal-title {
-    font-size: 0.75rem;
-  }
+@keyframes glowShift {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1.02) rotate(2deg); opacity: 0.86; }
 }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const pre = document.querySelector('.terminal-body');
+  const terminalText = `
+user@dankenet:~$ boot sequence --init
+Initializing application stack...
+Loading security agents...
+
+user@dankenet:~$ agent --status --live
+
+● PresaWatch running
+● nLearning running
+○ danke@cloud loading
+○ main dc loading
+
+user@dankenet:~$ uptime 15+ years
+user@dankenet:~$ location Morelia Mich, MX
+`;
+
+  const typingSpeed = 26;
+  pre.textContent = '';
+  let idx = 0;
+
+  const renderFormatted = () => {
+    pre.innerHTML = terminalText
+      .replace(/user@dankenet/g, '<span class="prompt">user@dankenet</span>')
+      .replace(/~/g, '<span class="path">~</span>')
+      .replace(/●/g, '<span class="ok">●</span>')
+      .replace(/○/g, '<span class="idle">○</span>')
+      .replace(/PresaWatch running/g, 'PresaWatch <span class="state ok pwatch">running</span>')
+      .replace(/nLearning running/g, 'nLearning <span class="state ok nlearn">running</span>')
+      .replace(/danke@cloud loading/g, 'danke@cloud <span class="state muted" id="danke-cloud">loading</span>')
+      .replace(/main dc loading/g, 'main dc <span class="state muted" id="main-dc">loading</span>');
+
+    const cursorSpan = document.createElement('span');
+    cursorSpan.className = 'cursor';
+    cursorSpan.textContent = '▌';
+    pre.appendChild(cursorSpan);
+  };
+
+  let cursorInterval;
+  const startCursorBlink = () => {
+    const cursor = document.querySelector('.cursor');
+    if (!cursor) return;
+    if (cursorInterval) clearInterval(cursorInterval);
+    cursor.style.opacity = '1';
+    cursorInterval = setInterval(() => {
+      cursor.style.opacity = cursor.style.opacity === '0' ? '1' : '0';
+    }, 500);
+  };
+
+  const typeWriter = () => {
+    if (idx < terminalText.length) {
+      pre.textContent += terminalText[idx];
+      idx += 1;
+      setTimeout(typeWriter, typingSpeed);
+    } else {
+      renderFormatted();
+      startLoadingDots();
+      startStatusToggle();
+      startCursorBlink();
+    }
+  };
+
+  const startLoadingDots = () => {
+    const edges = [
+      { id: 'danke-cloud' },
+      { id: 'main-dc' }
+    ];
+
+    let dots = 0;
+    setInterval(() => {
+      dots = (dots % 3) + 1;
+      edges.forEach(({ id }) => {
+        const node = document.getElementById(id);
+        if (node) {
+          node.textContent = `loading${'.'.repeat(dots)}`;
+        }
+      });
+    }, 450);
+  };
+
+  const startStatusToggle = () => {
+    const services = [
+      { selector: '.pwatch', up: 'running', down: 'idle' },
+      { selector: '.nlearn', up: 'running', down: 'idle' }
+    ];
+
+    setInterval(() => {
+      services.forEach(cfg => {
+        const node = document.querySelector(cfg.selector);
+        if (!node) return;
+        if (node.textContent.trim() === cfg.up) {
+          node.textContent = cfg.down;
+          node.classList.remove('ok');
+          node.classList.add('muted');
+        } else {
+          node.textContent = cfg.up;
+          node.classList.remove('muted');
+          node.classList.add('ok');
+        }
+      });
+    }, 2200);
+  };
+
+  setTimeout(typeWriter, 400);
+});
+</script>

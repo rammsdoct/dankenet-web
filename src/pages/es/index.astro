@@ -16,9 +16,9 @@ import TerminalGadget from "../../components/TerminalGadget.astro";
     <div class="hero-grid">
       <!-- Columna lateral -->
       <aside class="hero-side" aria-label="Etiquetas de empresa y regiones">
-        <span class="hero-tag">DANKE.NET</span>
-        <span class="hero-tag">IT HIVE</span>
-        <span class="hero-tag">MX · LATAM · US/CA</span>
+        <span id="heroTag" class="hero-tag">THE HIVE</span>
+        <span class="hero-tag">MOR/MICH/MX</span>
+        <span class="hero-tag">LATAM · USA/CA</span>
       </aside>
 
       <!-- Contenido principal -->
@@ -43,26 +43,39 @@ import TerminalGadget from "../../components/TerminalGadget.astro";
     </div>
   </section>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const heroTag = document.getElementById('heroTag');
+      if (!heroTag) return;
+      const variants = ['THE HIVE', 'THE HIVE MOR', 'THE HIVE MICH', 'THE HIVE MX'];
+      let current = 0;
+      setInterval(() => {
+        current = (current + 1) % variants.length;
+        heroTag.textContent = variants[current];
+      }, 2500);
+    });
+  </script>
+
   <!-- ===================== -->
   <!-- ESTADO / STATUS GADGET -->
   <!-- ===================== -->
   <TerminalGadget />
 
-  <!-- ===================== -->  <!-- POR QU\u00c9 ELEGIRNOS -->
+  <!-- ===================== -->  <!-- POR QUÉ ELEGIRNOS -->
   <!-- ===================== -->
   <section class="why-us-section" aria-labelledby="why-us-title">
     <div class="container">
-      <h2 id="why-us-title">Por qu\u00e9 elegirnos</h2>
+      <h2 id="why-us-title">Por qué elegirnos</h2>
       <p class="why-us-intro">
         Trabajamos con disciplina operativa, enfoque en seguridad y resultados verificables.
-        Somos un aliado comprometido con tu \u00e9xito a largo plazo.
+        Somos un aliado comprometido con tu éxito a largo plazo.
       </p>
 
       <div class="why-us-grid">
         <div class="value-item">
           <i class="fas fa-shield-alt value-icon"></i>
-          <h3>Seguridad Primero</h3>
-          <p>Enfoque proactivo en protecci\u00f3n de datos, cumplimiento normativo y resiliencia operativa.</p>
+          <h3>Seguridad primero</h3>
+          <p>Enfoque proactivo en protección de datos, cumplimiento normativo y resiliencia operativa.</p>
         </div>
 
         <div class="value-item">

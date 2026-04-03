@@ -16,9 +16,9 @@ import TerminalGadget from "../components/TerminalGadget.astro";
     <div class="hero-grid">
       <!-- Columna lateral -->
       <aside class="hero-side" aria-label="Company tags and regions">
-        <span class="hero-tag">DANKE.NET</span>
-        <span class="hero-tag">IT HIVE</span>
-        <span class="hero-tag">MX · LATAM · US/CA</span>
+        <span id="heroTag" class="hero-tag">THE HIVE</span>
+        <span class="hero-tag">MOR/MICH/MX</span>
+        <span class="hero-tag">LATAM · USA/CA</span>
       </aside>
 
       <!-- Contenido principal -->
@@ -47,6 +47,19 @@ import TerminalGadget from "../components/TerminalGadget.astro";
   <!-- LIVE STATUS GADGET -->
   <!-- ===================== -->
   <TerminalGadget />
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const heroTag = document.getElementById('heroTag');
+      if (!heroTag) return;
+      const variants = ['THE HIVE', 'THE HIVE MOR', 'THE HIVE MICH', 'THE HIVE MX'];
+      let current = 0;
+      setInterval(() => {
+        current = (current + 1) % variants.length;
+        heroTag.textContent = variants[current];
+      }, 2500);
+    });
+  </script>
 
   <!-- ===================== -->
   <!-- WHY CHOOSE US -->
